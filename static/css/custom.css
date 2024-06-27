@@ -1,0 +1,192 @@
+/* @import url("https://cdn.jsdelivr.net/gh/pengx17/logseq-dev-theme@main/custom.css"); */
+/* @import url("https://cdn.jsdelivr.net/gh/pengx17/logseq-dev-theme@main/bullet_threading.css"); */
+
+:root {
+  /* theme */
+  --ls-main-content-max-width: 1080px;
+  --ls-right-sidebar-width: 30%;
+  --ls-page-text-size: 15px;
+  --ls-page-title-size: 30px;
+
+  /* --ls-font-family: "LXGWWenKaiMono-Regular"; */
+  --ls-font-family: "migmix-2m-regular";
+  --ls-font-weight: 400;
+  --ls-font-letter-spacing: 0.002em;
+  --ls-font-line-height: 1.5;
+
+  /* bullet_threading */
+  --ls-block-bullet-active-color: lightblue;
+  --ls-block-bullet-threading-width: 3px;
+
+  /* custom */
+  --my-font-family: "migmix-2m-regular";
+  --my-page-color: cornflowerblue;
+  --my-code-color: #bbeecf;
+  --my-code-font-size: 15px;
+  --my-code-line-height: 1.35;
+  --my-title-color: darkgoldenrod;
+  --my-title-font-size: 16px;
+  --my-title-font-weight: 450;
+}
+
+.dark-theme {
+  --ls-primary-text-color: lavender;
+}
+
+/* 标题 */
+.editor-inner .uniline-block:is(.h1,.h2,.h3,.h4,.h5,.h6),
+.ls-block :is(h1,h2,h3,h4,h5,h6) {
+  font-family: var(--my-font-family);
+  font-size: var(--my-title-font-size);
+  font-weight: var(--my-title-font-weight);
+  color: var(--my-title-color);
+  margin: 0;
+}
+.ls-block .block-ref :is(h1,h2,h3,h4,h5,h6) {
+  color: var(--my-page-color);
+}
+.ls-block .block-ref :is(h1,h2,h3,h4,h5,h6)::after{
+  content: none;
+}
+/* 引用页面 */
+a.page-ref {
+  font-family: var(--my-font-family);
+  cursor: alias;
+  color: var(--my-page-color);
+}
+/* 引用节点 */
+.block-ref {
+  font-family: var(--my-font-family);
+  border-bottom: 0px;
+}
+/*
+.block-ref span.inline {
+  padding: 0px 5px;
+  border-bottom: .5px solid;
+  border-bottom-color: var(--ls-block-ref-link-text-color);
+}
+*/
+/* 引用链接 */
+a.external-link {
+  padding: 0px !important;
+  border-bottom: .5px solid;
+  border-bottom-color: var(--ls-block-ref-link-text-color);
+  font-family: var(--my-font-family);
+  color: lightblue;
+}
+/* 代码 */
+html[data-theme=dark] :not(pre)>code {
+  font-family: var(--my-font-family), monospace;
+  font-size: var(--my-code-font-size);
+  color: var(--my-code-color);
+  background: transparent;
+}
+/* 代码块 */
+html[data-theme=dark] .CodeMirror {
+  font-family: var(--my-font-family), monospace;
+  color: var(--my-code-color);
+  border: 1px solid slategray;
+}
+html[data-theme=dark] .CodeMirror-linenumber,
+html[data-theme=dark] .CodeMirror-gutter,
+html[data-theme=dark] .CodeMirror-gutters,
+html[data-theme=dark] .CodeMirror-line {
+  font-size: var(--my-code-font-size);
+  line-height: var(--my-code-line-height);
+}
+html[data-theme=dark] .extensions__code-lang {
+  color: lightcyan;
+  opacity: .6;
+  padding: 3px 5px;
+  margin: 5px 5px;
+}
+html[data-theme=dark] .CodeMirror-scroll {
+  padding-top: 2px;
+  padding-bottom: 50px;
+}
+/* 公式 */
+.katex {
+  /* font: normal 1.21em KaTeX_Main,Times New Roman,serif; */
+  font: normal 1em var(--my-code-font-size),KaTeX_Main,Times New Roman,serif;
+}
+/* 粗体 */
+html[data-theme=dark] b {
+  font-family: var(--my-font-family);
+  font-weight: 520;
+  color: burlywood;
+}
+/* 高亮 */
+html[data-theme=dark] mark {
+  padding: 0px 5px;
+  background-color: #ff7f5025;
+  color: coral;
+  font-family: var(--my-font-family);
+  font-size: 14px;
+  text-decoration: none;
+}
+/* 标签 */
+html[data-theme=dark] a.tag {
+  font-family: var(--my-font-family);
+  font-weight: var(--ls-font-weight);
+  vertical-align: text-top;
+  opacity: var(--ls-tag-text-opacity);
+}
+/* 特殊标签 */
+html[data-theme=dark] a[data-ref=card] {
+  opacity: var(--ls-tag-text-opacity);
+}
+html[data-theme=dark] a.tag[data-ref=card] {
+  color: cadetblue;
+}
+html[data-theme=dark] a.tag[data-ref=example] {
+  color: indianred;
+}
+/* 表格 */
+html[data-theme=dark] table {
+  border: 1px solid slategray;
+}
+
+/* Feature */
+.block-content.inline {
+  text-align: justify;
+  display: inline-block;
+}
+.inline .block-content.inline {
+  display: inline;
+}
+
+/* Fix */
+.items-baseline {
+  align-items: center !important;
+}
+:not(pre)>code,
+.external-link {
+  padding: 3px 0px !important;
+}
+.table-wrapper {
+  max-width: unset !important;
+}
+.table-wrapper :is(th,td) {
+  word-break: keep-all;
+  white-space: nowrap;
+}
+.extensions__code .CodeMirror {
+  border: 0px;
+  border-radius: 0px;
+  box-shadow: none;
+}
+.extensions__code div.mt-6 {
+  margin-top: 5px;
+}
+.embed, .embed-page, .embed-block,
+:is(.embed, .embed-page, .embed-block):is(:hover, :focus-within) {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  border-radius: 0px;
+  box-shadow: none !important;
+  transform: none !important;
+}
+.block-control-wrap.is-order-list {
+  margin-right: 5px;
+}
